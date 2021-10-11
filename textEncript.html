@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Title" content="Jgalvan Design">
+    <meta name="Author" content="Jesus Galvan Gonzalez">
+    <meta name="Description" lang="es" content="Jgalvan Design es un portfolio, site personal y un el perfil universal de Jesus Galvan Gonzalez">
+    <meta name="Publisher" content="Jesus Galvan Gonzalez">
+    <meta name="Robots" content="All">
+    <title>Jgalvan Design</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/icono_logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,600;0,900;1,300;1,600;1,900&amp;family=Oswald:wght@300;600;700&amp;display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles_jgd.css">
+  </head>
+  <body>
+    <main class="contenedor--project">
+      <section class="miniHeroCover">
+        <div class="miniHeroCover__imagen"><img src="./assets/images/project__textEncript.jpg" alt="Imagen relacionada con el proyecto"></div>
+        <div class="miniHeroCover__contenido">
+          <h2>Text Encript</h2>
+          <h4>Encriptador de texto</h4>
+        </div>
+      </section>
+      <section class="moduloProject">
+        <div class="moduloProject__description">
+          <p>Bienvenidos, este es un proyecto sencillo en el cual encriptamos un texto en función de una clave numérica, si copiamos y pegamos el texto encriptado y facilitamos la clave numérica de encriptación podemos desencriptar el texto y ver el mensaje secreto.</p>
+          <p>Aunque el proyecto no es gran cosa me pareció divertido realizarlo, su aplicación real no es otra más allá de mandar mensajes secretos que no quedan registrados en ninguna parte y que no pueden ser descifrados por nadie que no tenga la clave, al menos de momento, ya veré si puedo darle algún otro uso más adelante.</p>
+          <p>No obstante pueden probar y por supuesto utilizar la aplicación actualmente para los fines que deseen.</p>
+        </div>
+        <div class="moduloProject__file">
+          <h3>Ficha técnica</h3>
+          <p>Versión: 1.0.0</p>
+          <p>Estado: Pendiente de actualización</p>
+          <p>Tecnologías:
+            <ul>
+              <li>HTML5</li>
+              <li>CSS</li>
+              <li>Javascript</li>
+            </ul>
+          </p>
+          <p>Licencia: MIT</p>
+          <p>Repositorio: </br><a href="https://github.com/Jgalvan7/textEncript.git">Repositorio Guthub</a></p>
+        </div>
+      </section>
+      <section class="moduloEncript">
+        <div class="moduloEncript__container">
+          <p class="moduloEncript__container--tittle">Mensaje TextEncript</p>
+          <textarea class="moduloEncript__container--mensaje" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+          <div class="moduloEncript__container--action">
+            <input type="button" value="Encriptar" onclick="encripText()">
+            <input type="button" value="Desencriptar" onclick="desencripText()">
+            <input type="button" value="Copiar" onclick="copyToClipBoard()">
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./src/textEncript.js"></script>
+  </body>
+</html>
