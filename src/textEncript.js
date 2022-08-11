@@ -2,18 +2,18 @@
  * ¿Cómo funciona?
  * Para encriptar el texto utilizaremos un código facilitado por el usuario, dicho código nos marcará en cada posición
  * cual es la base de encriptación que debemos utilizar, además para hacerlo un poco mas complicado de descifrar, cada
- * letra utilizara una base, osea, si ponemos el texto "Hola mundo" y establecemos el código "123" el El textEncript lo
+ * letra utilizará una base, osea, si ponemos el texto "Hola mundo" y establecemos el código "123" el El textEncript lo
  * que hace es coger la primera letra la "H" y la busca en la Base para saber la posición en la base de caracteres
  * después va al código y utiliza el primer número para establecer la base de encriptación con lo que utilizaría el "1"
- * con lo que buscaría la posición 18 (que pertenece a la letra "H" en la base) en baseEncrip[1], esto le devuelve el
+ * y buscaría la posición 18 (que pertenece a la letra "H" en la base) en baseEncrip[1], esto le devuelve el
  * valor "50" y busca dicho valor en la Base y lo sustituye por el original, seguidamente pasa al segundo caracter en
  * este caso la letra "o" y hace lo mismo pero al igual que se ha posicionado en el segundo caracter del texto ahora
  * también se posiciona en el segundo caracter de la clave con lo que ahora utilizará baseEncrip[2] para sustituir el
- * segundo caracter, y así una posición tras otra, con la salvedad de que cuando el codigo de encriptacion llega a su
+ * segundo caracter, y así una posición tras otra, con la salvedad de que cuando el código de encriptacion llega a su
  * última posición, este para la siguiente posición del texto vuelve a utilizar la primera posición de dicho código.
  *
  * Aquí definimos la constante Base que contendrá todos los caracteres que serán reconocidos por el encriptador
- * Después tenemos el Array de arrays baseEncrip que es lo que usaremos para encriptar y desencriptar el texto
+ * Después tenemos el Array de Arrays baseEncrip que es lo que usaremos para encriptar y desencriptar el texto
  * en función del código número establecido por el usuario.
  */
 const Base = ["a","A","á","b","B","c","C","d","D","e","E","é","f","F","g","G","h","H","i","I","í","j","J","k","K","l","L","m","M","n","N","ñ","Ñ","o","O","ó","p","P","q","Q","r","R","s","S","t","T","u","U","ú","ü","v","V","w","W","x","X","y","Y","z","Z","0","1","2","3","4","5","6","7","8","9"," ",",",".","-","_","?","¿","!","¡",":",";","'","\"","/","\\","€","$","@","#","+","-","*","<",">","=","%","&","{","}","[","]"];
@@ -55,16 +55,17 @@ const Mensaje = document.getElementById("mensaje");
   * si no reinicia la posición para que así la baseEncrip vaya rotando hasta el final del texto.
   */
 function encripText() {
-    var codigo = prompt("Establece el codigo numerico de desencriptacion:");
+    let codigo = prompt("Establece el código numérico de desencriptación:");
     let codigoEnBase = codigo.length;
-    var texto = String(Mensaje.value);
+    let texto = String(Mensaje.value);
+    texto = texto.replaceAll("\n", "NEWLINE");
     let mensajeEnBase = texto.length;
     if(codigoEnBase > mensajeEnBase) {
-        alert("El codigo de encripcation no puede ser mayor a la longitud del mensaje");
+        alert("El código de encripcatión no puede ser mayor a la longitud del mensaje");
         encripText();
     } else {
         Mensaje.value = "";
-        var code = 0;
+        let code = 0;
         for(c of texto) {
             for(b in Base) {
                 if(c == Base[b]) {
@@ -103,10 +104,10 @@ function encripText() {
   * para sumarle una posición o reiniciarlo.
   */
 function desencripText() {
-    var codigo = prompt("Inserta el codigo numerico de desencriptacion:");
+    let codigo = prompt("Inserta el código numérico de desencriptación:");
     let codigoEnBase = codigo.length;
-    var texto = String(Mensaje.value);
-    var code = 0;
+    let texto = String(Mensaje.value);
+    let code = 0;
     Mensaje.value = "";
     for(c of texto) {
         for(b in Base) {
@@ -125,6 +126,9 @@ function desencripText() {
             code = 0;
         }
     }
+    let secret = Mensaje.value
+    let newMensaje = secret.replaceAll("NEWLINE","\n");
+    Mensaje.value = newMensaje;
 }
 /**
   * Función para copiar texto al portapapeles
