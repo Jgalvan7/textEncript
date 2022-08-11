@@ -69,11 +69,7 @@ function encripText() {
         for(c of newTexto) {
             for(b in Base) {
                 if(c == Base[b]) {
-                    console.log(c);
-                    console.log(b);
-                    console.log(codigo[code]);
                     let newCaracter = baseEncrip[codigo[code]][b];
-                    console.log(newCaracter);
                     let codificar = Base[newCaracter];
                     Mensaje.value += codificar;
                 }
@@ -116,8 +112,6 @@ function desencripText() {
     for(c of texto) {
         for(b in Base) {
             if(c == Base[b]) {
-                console.log(c);
-                console.log(b);
                 for(d of baseEncrip[codigo[code]]) {
                     if(b == baseEncrip[codigo[code]][d]) {
                         let newCaracter = Base[d];
